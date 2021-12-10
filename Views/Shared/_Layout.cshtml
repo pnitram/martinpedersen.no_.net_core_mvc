@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/martinpedersen.no.styles.css" asp-append-version="true" />
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <!-- MDB -->
+    <link href="~/css/mdb.min.css" rel="stylesheet" />
 </head>
 <body>
     <header>
@@ -38,15 +44,52 @@
             @RenderBody()
         </main>
     </div>
+<footer class="text-center footer text-muted" style="background-color: #f1f1f1;">
+  <!-- Grid container -->
+  <div class="container pt-4">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Email -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="mailto:martin.pedersen@me.com" target="_blank"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="far fa-envelope"></i
+      ></a>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - martinpedersen.no <a id="footer-right" href="https://github.com/pnitram" target="_blank">GitHub</a><a id="footer-right" href="https://no.linkedin.com/in/pnitram" target="_blank">LinkedIn</a><a id="footer-right" href="mailto:martin.pedersen@me.com" target="_blank">Email</a>
-        </div>
-    </footer>
+      <!-- Linkedin -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="https://no.linkedin.com/in/pnitram" target="_blank"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-linkedin"></i
+      ></a>
+      <!-- Github -->
+      <a
+        class="btn btn-link btn-floating btn-lg text-dark m-1"
+        href="https://github.com/pnitram" target="_blank"
+        role="button"
+        data-mdb-ripple-color="dark"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center text-dark p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2021 Copyright - martinpedersen.no
+  </div>
+  <!-- Copyright -->
+</footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <!-- MDB -->
+    <script type="text/javascript" src="~/js/mdb.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
