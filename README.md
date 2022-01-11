@@ -1,3 +1,4 @@
+This site is created with ASP.NET Core MVC, packaged in a Docker container and deployed in Azure Kubernetes Service (AKS).
 
 # Build and push image to azure container registry
 ```bash
