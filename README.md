@@ -79,7 +79,7 @@ spec:
 kubectl create -f letsencrypt-production.yaml
 ```
 
-# Create confguration for deployment
+# Create configuration for deployment
 ```bash
 vim martinpedersenno.yaml
 ```
