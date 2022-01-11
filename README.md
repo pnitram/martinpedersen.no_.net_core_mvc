@@ -3,27 +3,27 @@
 az acr build --registry $acrname --image $imagename --file Dockerfile .
 
 # Get Helm and deploy certmanager
-curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
-chmod 700 get_helm.sh
-./get_helm.sh
-helm repo add jetstack https://charts.jetstack.io
-helm repo update
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 <br>
+chmod 700 get_helm.sh <br>
+./get_helm.sh <br>
+helm repo add jetstack https://charts.jetstack.io <br>
+helm repo update <br>
 helm install cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --set installCRDs=true
 
 # Install kubectl-cert_manager plugin locally
-curl -L -o kubectl-cert-manager.tar.gz https://github.com/jetstack/cert-manager/releases/latest/download/kubectl-cert_manager-linux-amd64.tar.gz
-tar xzf kubectl-cert-manager.tar.gz
-sudo mv kubectl-cert_manager /usr/local/bin
+curl -L -o kubectl-cert-manager.tar.gz https://github.com/jetstack/cert-manager/releases/latest/download/kubectl-cert_manager-linux-amd64.tar.gz <br>
+tar xzf kubectl-cert-manager.tar.gz <br>
+sudo mv kubectl-cert_manager /usr/local/bin <br>
 
 # Install cmtl locally
-curl -L -o cmctl.tar.gz https://github.com/jetstack/cert-manager/releases/download/v1.6.1/cmctl-linux-amd64.tar.gz
-tar xzf cmctl.tar.gz
-sudo mv cmctl /usr/local/bin
+curl -L -o cmctl.tar.gz https://github.com/jetstack/cert-manager/releases/download/v1.6.1/cmctl-linux-amd64.tar.gz <br>
+tar xzf cmctl.tar.gz <br>
+sudo mv cmctl /usr/local/bin <br>
 
 # Deploy nginx ingress controller
-helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-helm repo update
-helm install ingress-controller ingress-nginx/ingress-nginx
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx <br>
+helm repo update <br>
+helm install ingress-controller ingress-nginx/ingress-nginx <br>
 
 # Create letsencrypt config
 
