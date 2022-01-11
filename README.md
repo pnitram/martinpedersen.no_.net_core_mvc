@@ -1,7 +1,8 @@
 
 # Build and push image to azure container registry
+```bash
 az acr build --registry $acrname --image $imagename --file Dockerfile .
-
+```
 # Get Helm and deploy certmanager
 ```bash
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
@@ -33,7 +34,9 @@ helm install ingress-controller ingress-nginx/ingress-nginx
 # Create letsencrypt config
 
 # Create letsencrypt config for stage/testing 
+```bash
 vim letsencrypt-staging.yaml
+```
 ```yaml
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
@@ -51,8 +54,10 @@ spec:
             class: nginx
 ```
 
-# Create letsencrypt config for production 
+# Create letsencrypt config for production
+```bash
 vim letsencrypt-production.yaml
+```
 ```yaml
 piVersion: cert-manager.io/v1
 kind: ClusterIssuer
@@ -69,11 +74,15 @@ spec:
           ingress:
             class: nginx
 ```
-# Apply certificate configuration 
+# Apply certificate configuration
+```bash
 kubectl create -f letsencrypt-production.yaml
+```
 
 # Create confguration for deployment
+```bash
 vim martinpedersenno.yaml
+```
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -144,5 +153,7 @@ spec:
 ```
 
 # Deploy the solution
+```bash
 kubectl apply -f martinpedersenno.yaml -n homepage
+```
 
