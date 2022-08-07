@@ -158,3 +158,16 @@ spec:
 kubectl apply -f martinpedersenno.yaml -n homepage
 ```
 
+# To deploy as Azure containerapp instead:
+
+az containerapp create \
+  --name mpwebsite \
+  --resource-group MPwebsiteRG \
+  --environment $CONTAINERAPPS_ENVIRONMENT \
+  --registry-server mpwebsiteacr.azurecr.io \
+  --image mpwebsiteacr.azurecr.io/martinpedersen.no:v2.0 \
+  --registry-username abcde --registry-password abcde  \
+  --target-port 5000 \
+  --ingress 'external' \
+  --query properties.configuration.ingress.fqdn
+
